@@ -1,0 +1,29 @@
+---
+logging.level.root: debug
+server:
+  port: 8091
+  session:
+    timeout: 30
+spring:
+  profiles: chengdu-1
+  application:
+    name: microservice-business
+  datasource:
+    type: org.apache.tomcat.jdbc.pool.DataSource
+    driver-Class-Name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.249.199:3306/microservice?useUnicode=true&amp;characterEncoding=UTF-8&amp;autoReconnect=true&amp;failOverReadOnly=false&amp;useSSL=false
+    username: truck
+    password: jjb910123
+    testWhileIdle: true
+    validationQuery: SELECT 1
+    maxIdle: 192
+    minIdle: 64
+    maxActive: 256
+    maxWait: 30000
+    timeBetweenEvictionRunsMillis: 60000
+    numTestsPerEvictionRun: 20
+    minEvictableIdleTimeMillis: 300000
+  mybatis:
+    mapperLocations: classpath*:mapping/*.xml
+    typeAliasesPackage: com.genesis.microservice.business.pojo
+    mapperBasePackages: com.genesis.microservice.business.mapper
